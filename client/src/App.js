@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="" element={<HomePage/>}/>
+          <Route path="/" element={<HomePage/>}/>
           <Route path="/new/note" element={<NewNote/>}/>
           <Route path="/edit/note/:id" element={<EditNote/>}/>
           <Route path="/view/note/:id" element={<ViewNote/>}/>
