@@ -40,12 +40,10 @@ const HomePage = (props) => {
                     <p>Insert Content Here</p>
 
                     {list.map((note) => {
-                        let formattedDate = new Date(note.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric", timeZone: "UTC"});
                         return (
                             <div className="row align-items-center border-bottom mb-4" key={note._id}>
                                 <div className="col-md">
-                                    <h3><Link className="hover_underline" to={`/view/note/${note._id}`}>{note.title}</Link></h3>
-                                    <p><i>{formattedDate}</i></p>
+                                    <h3><Link to={`/view/note/${note._id}`}>{note.title}</Link></h3>
                                 </div>
                                 <div className="col-md-auto">
                                     <p><Link to={`/edit/note/${note._id}`} className='btn btn-primary me-3'>Edit</Link><button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>

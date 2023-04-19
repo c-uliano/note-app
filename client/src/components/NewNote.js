@@ -71,12 +71,6 @@ const NewNote = (props) => {
         } 
     }
 
-    const cancelBtn = (e) => {
-        navigate("/");
-    }
-
-
-
     // TODO make sure the name="" for each input matches the backend model
     return(
         <div className="container">

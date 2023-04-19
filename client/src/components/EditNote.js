@@ -13,13 +13,13 @@ const EditNote = (props) => {
         content: "",
     });
 
-    // TODO update api link
     // * navigate
     const navigate = useNavigate();
 
     // * param for url to single product edit page
     const { id } = useParams();
 
+    // TODO update api link
     useEffect(() => {
         axios.get(`http://localhost:8000/api/post/${id}`)
             .then(res => {
@@ -82,48 +82,61 @@ const EditNote = (props) => {
         } 
     }
 
-    const cancelBtn = (e) => {
-        navigate(`/view/note/${note._id}`);
+     // TODO update api link
+    // * delete functionality
+    const deleteOneHandler = (id) => {
+        axios.delete(`http://localhost:8000/api/post/${id}`)
+            .then(res => {
+                navigate("/");
+            })
+            .catch(err => console.log(err))
     }
 
-
-
-
+    // TODO make sure the name="" & value="" for each input matches the backend model
     return(
         <div class="container">
 
-            <div class="left">
-                <h1>Edit A Note</h1>
-                <Link to="/">View All Notes</Link>
-            </div>
-
-            <div class="right">
-                <form>
-                    <div class="input">
-                        <label>Title</label>
-                        <input 
-                            type="text"
-                            name="title"
-                            />
-                    </div>
-
-                    <div class="input">
-                        <label>Date</label>
-                        <input 
-                            type="date"
-                            name="date"
-                            />
-                    </div>
-                    
-                    <div class="input">
-                        <label>Note</label>
-                        <textarea name="note"></textarea>
-                    </div>
-
-                    <div class="submit">
-                        <input type="submit" value="Edit Note"/>
-                    </div>
-                </form>
+            <div className='row align-items-center'>
+                <div className="col-md-6 text-center">
+                    <h1>Edit<br />A<br />Note</h1>
+                    <Link to="/" className='btn btn-primary'>View All Notes</Link>
+                </div>
+                <div className="col-md-6">
+                    <form onSubmit={onSubmitHandler}>
+                        <div className="mb-3">
+                            {errors.title ? <p className='text-danger'>{errors.title}</p> : ""}
+                            <label htmlFor="title" className="form-label">Title</label>
+                            <input
+                                type="text"
+                                name="title"
+                                className="form-control"
+                                onChange={onChangeHandler}
+                                value={note.title}
+                                />
+                        </div>
+                        <div className="mb-3">
+                            {errors.date ? <p className='text-danger'>{errors.date}</p> : ""}
+                            <label>Date</label>
+                            <input
+                                type="date"
+                                name="date"
+                                className="form-control"
+                                onChange={onChangeHandler}
+                                value={note.date}
+                                />
+                        </div>
+                
+                        <div className="mb-3">
+                            {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
+                            <label>Note</label>
+                            <textarea name="content" rows="10" className="form-control" value={note.content} onChange={onChangeHandler}></textarea>
+                        </div>
+                        <div>
+                            <input className='btn btn-success me-3' type="submit" value="Edit Note"/>
+                            <button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </div>
