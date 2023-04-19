@@ -9,10 +9,11 @@ const HomePage = (props) => {
     // TODO update api link
     // * get all items from database
     useEffect(() => {
-        axios.get('http://localhost:8000/api/post')
+        axios.get('http://localhost:8000/api/notes')
             .then(res => {
                 setList(res.data)
-                console.log(list)
+                console.log(list) //prints empty array because state is updates late
+                console.log(res.data)
             })
             .catch(err => console.log(err))
     }, []);
@@ -20,7 +21,7 @@ const HomePage = (props) => {
     // TODO update api link
     // * delete functionality
     const deleteOneHandler = (id) => {
-        axios.delete(`http://localhost:8000/api/post/${id}`)
+        axios.delete(`http://localhost:8000/api/notes/${id}`)
             .then(res => {
                 const filteredList = list.filter(item => item._id !== id)
                 setList(filteredList)

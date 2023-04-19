@@ -15,7 +15,7 @@ const ViewPage = (props) => {
     // TODO update api link
     // * getting the data for the item
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/post/${id}`)
+        axios.get(`http://localhost:8000/api/notes/${id}`)
             .then(res => {
                 setNote(res.data)
                 console.log(note)
@@ -26,7 +26,7 @@ const ViewPage = (props) => {
     // TODO update api link
     // * delete functionality
     const deleteOneHandler = (id) => {
-        axios.delete(`http://localhost:8000/api/post/${id}`)
+        axios.delete(`http://localhost:8000/api/notes/${id}`)
             .then(res => {
                 navigate("/");
             })

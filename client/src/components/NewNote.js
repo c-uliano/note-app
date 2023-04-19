@@ -59,7 +59,7 @@ const NewNote = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (formValidator()) {
-            axios.post('http://localhost:8000/api/note', note)
+            axios.post('http://localhost:8000/api/notes', note)
             .then(res => {
                 console.log(res);
                 const id = res.data._id

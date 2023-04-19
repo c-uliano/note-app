@@ -21,7 +21,7 @@ const EditNote = (props) => {
 
     // TODO update api link
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/post/${id}`)
+        axios.get(`http://localhost:8000/api/notes/${id}`)
             .then(res => {
                 setNote(res.data)
             })
@@ -70,7 +70,7 @@ const EditNote = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (formValidator()) {
-            axios.post('http://localhost:8000/api/note', note)
+            axios.put('http://localhost:8000/api/notes/'+note._id, note)
             .then(res => {
                 console.log(res);
                 const id = res.data._id
@@ -85,7 +85,7 @@ const EditNote = (props) => {
      // TODO update api link
     // * delete functionality
     const deleteOneHandler = (id) => {
-        axios.delete(`http://localhost:8000/api/post/${id}`)
+        axios.delete(`http://localhost:8000/api/notes/${id}`)
             .then(res => {
                 navigate("/");
             })
