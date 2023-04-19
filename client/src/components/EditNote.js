@@ -96,44 +96,44 @@ const EditNote = (props) => {
     return(
         <div class="container">
 
-            <div className='row align-items-center'>
-                <div className="col-md-6 text-center">
+            <div className=''>
+                <div className="">
                     <h1>Edit<br />A<br />Note</h1>
-                    <Link to="/" className='btn btn-primary'>View All Notes</Link>
+                    <Link to="/" className=''>View All Notes</Link>
                 </div>
-                <div className="col-md-6">
+                <div className="">
                     <form onSubmit={onSubmitHandler}>
-                        <div className="mb-3">
-                            {errors.title ? <p className='text-danger'>{errors.title}</p> : ""}
-                            <label htmlFor="title" className="form-label">Title</label>
+                        <div className="">
+                            {errors.title ? <p className=''>{errors.title}</p> : ""}
+                            <label htmlFor="title" className="">Title</label>
                             <input
                                 type="text"
                                 name="title"
-                                className="form-control"
+                                className=""
                                 onChange={onChangeHandler}
                                 value={note.title}
                                 />
                         </div>
-                        <div className="mb-3">
+                        <div className="">
                             {errors.date ? <p className='text-danger'>{errors.date}</p> : ""}
                             <label>Date</label>
                             <input
                                 type="date"
                                 name="date"
-                                className="form-control"
+                                className=""
                                 onChange={onChangeHandler}
-                                value={note.date}
+                                value={formattedDate}
                                 />
                         </div>
                 
-                        <div className="mb-3">
-                            {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
+                        <div className="">
+                            {errors.content ? <p className=''>{errors.content}</p> : ""}
                             <label>Note</label>
-                            <textarea name="content" rows="10" className="form-control" value={note.content} onChange={onChangeHandler}></textarea>
+                            <textarea name="content" rows="10" className="" value={note.content} onChange={onChangeHandler}></textarea>
                         </div>
                         <div>
-                            <input className='btn btn-success me-3' type="submit" value="Edit Note"/>
-                            <button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
+                            <input className='' type="submit" value="Edit Note"/>
+                            <button className="" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
                         </div>
                     </form>
                 </div>

@@ -32,22 +32,20 @@ const HomePage = (props) => {
     return(
         <div className="container">
 
-            <div className='row align-items-center'>
-                <div className="col-md-6 text-center">
+            <div className=''>
+                <div className="">
                     <h1>Create<br />A<br />Note</h1>
-                    <Link to="/new/note" className='btn btn-primary'>New Note</Link>
+                    <Link to="/new/note" className=''>New Note</Link>
                 </div>
-                <div className="col-md-6">
-                    <p>Insert Content Here</p>
-
+                <div className="">
                     {list.map((note) => {
                         return (
-                            <div className="row align-items-center border-bottom mb-4" key={note._id}>
-                                <div className="col-md">
+                            <div className="" key={note._id}>
+                                <div className="">
                                     <h3><Link to={`/view/note/${note._id}`}>{note.title}</Link></h3>
                                 </div>
-                                <div className="col-md-auto">
-                                    <p><Link to={`/edit/note/${note._id}`} className='btn btn-primary me-3'>Edit</Link><button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>
+                                <div className="">
+                                    <p><Link to={`/edit/note/${note._id}`} className=''>Edit</Link><button className="" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>
                                 </div>
                             </div>
                         )
