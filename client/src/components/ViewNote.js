@@ -33,26 +33,21 @@ const ViewPage = (props) => {
             .catch(err => console.log(err))
     }
 
-
-
-
-
-
     return(
         <div className="container">
 
-            <div className='row'>
-                <div className="col-md-6 text-center">
+            <div className=''>
+                <div className="">
                     <h1>{note.title}</h1>
-                    <Link to="/" className='btn btn-primary'>View All Notes</Link>
+                    <Link to="/" className=''>View All Notes</Link>
                 </div>
-                <div className="col-md-6">
-                    <div className='mb-4'>
+                <div className="">
+                    <div className=''>
                         <p><i>{new Date(note.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric", timeZone: "UTC"})}</i></p>
                         <p>{note.content}</p>
                     </div>
                     <div>
-                        <p><Link to={`/edit/note/${note._id}`} className='btn btn-primary me-3'>Edit</Link><button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>
+                        <p><Link to={`/edit/note/${note._id}`} className=''>Edit</Link><button className="" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>
                     </div>
                 </div>
             </div>

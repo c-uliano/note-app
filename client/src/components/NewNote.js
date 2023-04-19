@@ -75,41 +75,41 @@ const NewNote = (props) => {
     return(
         <div className="container">
 
-            <div className='row align-items-center'>
-                <div className="col-md-6 text-center">
+            <div className=''>
+                <div className="">
                     <h1>Create<br />A New<br />Note</h1>
-                    <Link to="/" className='btn btn-primary'>View All Notes</Link>
+                    <Link to="/" className=''>View All Notes</Link>
                 </div>
-                <div className="col-md-6">
+                <div className="">
                     <form onSubmit={onSubmitHandler}>
-                        <div className="mb-3">
-                            {errors.title ? <p className='text-danger'>{errors.title}</p> : ""}
-                            <label htmlFor="title" className="form-label">Title</label>
+                        <div className="">
+                            {errors.title ? <p className=''>{errors.title}</p> : ""}
+                            <label htmlFor="title" className="">Title</label>
                             <input
                                 type="text"
                                 name="title"
-                                className="form-control"
+                                className=""
                                 onChange={onChangeHandler}
                                 />
                         </div>
-                        <div className="mb-3">
-                            {errors.date ? <p className='text-danger'>{errors.date}</p> : ""}
+                        <div className="">
+                            {errors.date ? <p className=''>{errors.date}</p> : ""}
                             <label>Date</label>
                             <input
                                 type="date"
                                 name="date"
-                                className="form-control"
+                                className=""
                                 onChange={onChangeHandler}
                                 />
                         </div>
                 
                         <div className="mb-3">
-                            {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
+                            {errors.content ? <p className=''>{errors.content}</p> : ""}
                             <label>Note</label>
-                            <textarea name="content" rows="10" className="form-control" onChange={onChangeHandler}></textarea>
+                            <textarea name="content" rows="10" className="" onChange={onChangeHandler}></textarea>
                         </div>
                         <div>
-                            <input className='btn btn-success' type="submit" value="Add Note"/>
+                            <input className='' type="submit" value="Add Note"/>
                         </div>
                     </form>
                 </div>
