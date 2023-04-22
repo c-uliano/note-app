@@ -17,7 +17,6 @@ const NoteSchema = new mongoose.Schema({
         minlength: [5, "Content must be at least 5 characters"]
     },
     isCompleted: {
-        // confer about whether this would be easier as a string type for front end
         type: Boolean,
     }
 }, {timestamps: true});

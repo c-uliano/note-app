@@ -7,13 +7,14 @@ const NewNote = (props) => {
     const [note, setNote] = useState({
         title: "",
         date: "",
-        content: ""
+        content: "",
+        isCompleted: false
     });
 
     const [errors, setErrors] = useState({
         title: "",
         date: "",
-        content: "",
+        content: ""
     });
 
     // * navigate
@@ -71,7 +72,7 @@ const NewNote = (props) => {
     return(
         <div className="container">
 
-            <div className="row app-page p-4 align-items-center">
+            <div className="row app-page align-items-center">
                 <div className="col-md-6 text-center">
                     <h1 className='display-3 title-block'>Create<br />A New<br />Note</h1>
                     <Link to="/" className='btn btn-info'>View All Notes</Link>
@@ -80,6 +81,12 @@ const NewNote = (props) => {
                 <div className="col-md-6 mt-4 mt-md-0">
                     <form onSubmit={onSubmitHandler}>
                         <div className="mb-3">
+                            {/* <input
+                                type="hidden"
+                                name="isCompleted"
+                                className="form-control"
+                                value="false"
+                                /> */}
                             {errors.title ? <p className='text-danger'>{errors.title}</p> : ""}
                             <label htmlFor="title" className="form-label">Title</label>
                             <input
@@ -103,7 +110,7 @@ const NewNote = (props) => {
                         <div className="mb-3">
                             {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
                             <label htmlFor="content" className="form-label">Note</label>
-                            <textarea name="content" rows="10" className="form-control" onChange={onChangeHandler}></textarea>
+                            <textarea name="content" rows="8" className="form-control" onChange={onChangeHandler}></textarea>
                         </div>
                         <div>
                             <button className="btn btn-primary" type="submit">Add Note</button>

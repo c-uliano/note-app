@@ -90,7 +90,7 @@ const EditNote = (props) => {
     return(
         <div class="container">
 
-            <div className='row app-page p-4 align-items-center'>
+            <div className='row app-page align-items-center'>
                 <div className="col-md-6 text-center">
                     <h1 className='display-3 title-block'>Edit<br />A<br />Note</h1>
                     <Link to="/" className='btn btn-info'>View All Notes</Link>
@@ -124,7 +124,7 @@ const EditNote = (props) => {
                         <div className="mb-3">
                             {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
                             <label htmlFor="content" className="form-label">Note</label>
-                            <textarea name="content" rows="10" className="form-control" value={note.content} onChange={onChangeHandler}></textarea>
+                            <textarea name="content" rows="8" className="form-control" value={note.content} onChange={onChangeHandler}></textarea>
                         </div>
                         <div className="btn-group">
                             <button className="btn btn-primary me-1" type='submit'>Edit Note</button>

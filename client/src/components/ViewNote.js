@@ -34,7 +34,7 @@ const ViewPage = (props) => {
     return(
         <div className="container">
 
-            <div className='row app-page p-4 align-items-center'>
+            <div className='row app-page align-items-center'>
                 <div className="col-md-6 text-center">
                     <div className='w-75 mx-auto'>
                         <h1 className='display-3 title-block'>{note.title}</h1>
