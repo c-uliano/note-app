@@ -12,7 +12,6 @@ const ViewPage = (props) => {
     // * param for url to single product page
     const { id } = useParams();
 
-    // TODO update api link
     // * getting the data for the item
     useEffect(() => {
         axios.get(`http://localhost:8000/api/notes/${id}`)
@@ -23,7 +22,6 @@ const ViewPage = (props) => {
             .catch(err => console.log(err))
     }, []);
 
-    // TODO update api link
     // * delete functionality
     const deleteOneHandler = (id) => {
         axios.delete(`http://localhost:8000/api/notes/${id}`)
@@ -36,18 +34,22 @@ const ViewPage = (props) => {
     return(
         <div className="container">
 
-            <div className=''>
-                <div className="">
-                    <h1>{note.title}</h1>
-                    <Link to="/" className=''>View All Notes</Link>
+            <div className='row app-page align-items-center'>
+                <div className="col-md-6 text-center">
+                    <div className='w-75 mx-auto'>
+                        <h1 className='display-3 title-block'>{note.title}</h1>
+                        <Link to="/" className='btn btn-info'>View All Notes</Link>
+                    </div>
                 </div>
-                <div className="">
-                    <div className=''>
+
+                <div className="col-md-6 mt-4 mt-md-0">
+                    <div className='mb-4'>
                         <p><i>{new Date(note.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric", timeZone: "UTC"})}</i></p>
                         <p>{note.content}</p>
                     </div>
-                    <div>
-                        <p><Link to={`/edit/note/${note._id}`} className=''>Edit</Link><button className="" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>
+                    <div className="btn-group text-center text-md-start d-block">
+                        <Link className="btn btn-primary me-1" to={`/edit/note/${note._id}`}>Edit</Link>
+                        <button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
                     </div>
                 </div>
             </div>

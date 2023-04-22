@@ -1,13 +1,57 @@
+:root {
+  --bs-info: darkblue;
+}
+
+.btn {
+  font-weight: 700;
+}
+
+.btn-info {
+  --bs-btn-bg: darkblue;
+  --bs-btn-color: white;
+  --bs-btn-border-color: darkblue;
+}
+
+.btn-info.btn:hover {
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-border-color: #020252;
+  --bs-btn-hover-bg: #020252;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Oxygen', sans-serif;
+  background-image: url('../public/geometric-bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,h2,h3,h4,h5,h5 {
+  font-weight: 700 !important;
+}
+
+.app-page {
+  border: 1px solid dimgrey;
+  border-radius: 10px;
+  padding: 10vh 1rem;
+  background: rgba(255, 255, 255, .55);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.title-block {
+  color: darkblue;
+  font-family: 'Gantari', sans-serif;
+  line-height: 1;
 }
