@@ -96,46 +96,55 @@ const EditNote = (props) => {
     return(
         <div class="container">
 
-            <div className=''>
-                <div className="">
-                    <h1>Edit<br />A<br />Note</h1>
-                    <Link to="/" className=''>View All Notes</Link>
+            <div className='row app-page'>
+                <div className="col-xs-12 col-md-5 font-google">
+                    <div>
+                        <h1 class="title-block">Edit<br />A<br />Note</h1>
+                    </div>
+                    <div class="navi-1">    
+                        <button class="button-note"><Link to="/" className='button-note-text'>View All Notes</Link></button>
+                    </div>
                 </div>
-                <div className="">
+                <div className="col-xs-12 col-md-7">
+                    <div class="list-block">
                     <form onSubmit={onSubmitHandler}>
-                        <div className="">
+                        <div className="mb-4">
                             {errors.title ? <p className=''>{errors.title}</p> : ""}
-                            <label htmlFor="title" className="">Title</label>
+                            <label htmlFor="title" className="form-label">Title</label>
                             <input
                                 type="text"
                                 name="title"
-                                className=""
+                                className="form-control form-control-lg"
                                 onChange={onChangeHandler}
                                 value={note.title}
                                 />
                         </div>
-                        <div className="">
+                        <div className="mb-4">
                             {errors.date ? <p className='text-danger'>{errors.date}</p> : ""}
-                            <label>Date</label>
+                            <label htmlFor="date" className="form-label">Date</label>
                             <input
                                 type="date"
                                 name="date"
-                                className=""
+                                className="form-control form-control-lg"
                                 onChange={onChangeHandler}
                                 value={formattedDate}
                                 />
                         </div>
                 
-                        <div className="">
+                        <div className="mb-4">
                             {errors.content ? <p className=''>{errors.content}</p> : ""}
-                            <label>Note</label>
-                            <textarea name="content" rows="10" className="" value={note.content} onChange={onChangeHandler}></textarea>
+                            <label htmlFor="content" className="form-label">Note</label>
+                            <textarea name="content" rows="10" className="form-control form-control-lg" value={note.content} onChange={onChangeHandler}></textarea>
                         </div>
-                        <div>
-                            <input className='' type="submit" value="Edit Note"/>
-                            <button className="" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
+                        <div class="text-end ">
+                            {/*<input className='' type="submit" value="Edit Note"/>*/}
+                            <div class="btn-group m-4">
+                            <button class="btn btn-primary" type="submit"><span class="button-note-text">Edit Note</span></button>&nbsp;
+                            <button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
+                            </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
 

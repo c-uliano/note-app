@@ -36,18 +36,22 @@ const ViewPage = (props) => {
     return(
         <div className="container">
 
-            <div className=''>
-                <div className="">
-                    <h1>{note.title}</h1>
-                    <Link to="/" className=''>View All Notes</Link>
+            <div className='row app-page'>
+                <div className="col-xs-12 col-md-5 font-google">
+                    <div>
+                    <h1 class="title-block-2">{note.title}</h1>
+                    </div>
+                    <div class="navi-1"> 
+                    <button class="button-note"><Link to="/" className='button-note-text'>View All Notes</Link></button>
+                    </div>
                 </div>
-                <div className="">
-                    <div className=''>
+                <div className="col-xs-12 col-md-7">
+                    <div className='list-block'>
                         <p><i>{new Date(note.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric", timeZone: "UTC"})}</i></p>
                         <p>{note.content}</p>
                     </div>
-                    <div>
-                        <p><Link to={`/edit/note/${note._id}`} className=''>Edit</Link><button className="" onClick={(e) => deleteOneHandler(note._id)}>Delete</button></p>
+                    <div class="text-end">
+                        <button class="btn btn-primary"><Link to={`/edit/note/${note._id}`} className='button-note-text'>Edit</Link></button>&nbsp;<button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
                     </div>
                 </div>
             </div>

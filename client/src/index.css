@@ -11,3 +11,117 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.font-google {
+  font-family: 'Gantari', sans-serif;
+  font-family: 'Oxygen', sans-serif;
+
+}
+
+.app-page {
+  border: 0.5pt;
+  border-color: dimgrey;
+  border-radius: 15pt;
+  border-style: solid;
+  font-family: Oxygen;
+
+}
+
+.title-block {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding:5vw 5vw 1vw 5vw;
+  color: darkblue;
+  font-family: "Oxygen";
+  font-weight:600;
+  font-size: 6vw;
+  line-height: 100%;
+  text-align: center;
+}
+
+.title-block-2 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding:7vw 7vw 1vw 7vw;
+  color: darkblue;
+  font-family: "Oxygen";
+  font-weight:600;
+  font-size: 5vw;
+  line-height: 100%;
+  text-align: center;
+}
+
+.navi-1 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 1vw 5vw 5vw 5vw;;
+  
+}
+.button-note {
+  background-color: darkblue;
+  border: solid;
+  border-color: lightblue;
+  border-width: 2pt;
+  color: white;
+  padding: 0.3vw 1.0vw 0.3vw 1.0vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.7vw;  
+}
+.button-note-text {
+  color:white;
+  font-size: 1rem;
+  font-family: Oxygen;
+  font-weight: 400;
+  letter-spacing: 0.1vw;
+}
+
+.list-block-row {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+  padding:5vw;
+  font-family: "Oxygen";
+}
+
+.absolutely-center {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-table {
+  color: black;
+  font-family: 'Oxygen';
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.1vw;
+}
+
+
+.text-spread {
+  display:flex;
+  width:100%;
+  padding:10pt;
+  justify-content: space-between;
+  border: 0pt 0pt 0.5pt 0pt;
+  border-color: white white lightgray white;
+  border-style: dotted
+
+  
+}
+
+.list-block {
+  margin: auto;
+  padding:5vw 2vw 5vw 2vw;
+  
+}
