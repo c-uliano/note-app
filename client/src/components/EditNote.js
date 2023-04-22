@@ -4,7 +4,6 @@ import {Link, useNavigate, useParams} from 'react-router-dom'
 
 const EditNote = (props) => {
     // * states
-    // TODO update these to match backend model
     const [note, setNote] = useState({});
 
     const [errors, setErrors] = useState({
@@ -19,7 +18,6 @@ const EditNote = (props) => {
     // * param for url to single product edit page
     const { id } = useParams();
 
-    // TODO update api link
     useEffect(() => {
         axios.get(`http://localhost:8000/api/notes/${id}`)
             .then(res => {
@@ -40,7 +38,6 @@ const EditNote = (props) => {
         });
     }
 
-    // TODO update lengths or anything else to match backend model
     const formValidator = () => {
         let isValid = true
         const newErrors = {}
@@ -66,7 +63,6 @@ const EditNote = (props) => {
         return isValid;
     }
 
-    // TODO update api link
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (formValidator()) {
@@ -82,7 +78,6 @@ const EditNote = (props) => {
         } 
     }
 
-     // TODO update api link
     // * delete functionality
     const deleteOneHandler = (id) => {
         axios.delete(`http://localhost:8000/api/notes/${id}`)
@@ -92,59 +87,50 @@ const EditNote = (props) => {
             .catch(err => console.log(err))
     }
 
-    // TODO make sure the name="" & value="" for each input matches the backend model
     return(
         <div class="container">
 
-            <div className='row app-page'>
-                <div className="col-xs-12 col-md-5 font-google">
-                    <div>
-                        <h1 class="title-block">Edit<br />A<br />Note</h1>
-                    </div>
-                    <div class="navi-1">    
-                        <button class="button-note"><Link to="/" className='button-note-text'>View All Notes</Link></button>
-                    </div>
+            <div className='row app-page p-4 align-items-center'>
+                <div className="col-md-6 text-center">
+                    <h1 className='display-3 title-block'>Edit<br />A<br />Note</h1>
+                    <Link to="/" className='btn btn-info'>View All Notes</Link>
                 </div>
-                <div className="col-xs-12 col-md-7">
-                    <div class="list-block">
+
+                <div className="col-md-6 mt-4 mt-md-0">
                     <form onSubmit={onSubmitHandler}>
-                        <div className="mb-4">
-                            {errors.title ? <p className=''>{errors.title}</p> : ""}
+                        <div className="mb-3">
+                            {errors.title ? <p className='text-danger'>{errors.title}</p> : ""}
                             <label htmlFor="title" className="form-label">Title</label>
                             <input
                                 type="text"
                                 name="title"
-                                className="form-control form-control-lg"
+                                className="form-control"
                                 onChange={onChangeHandler}
                                 value={note.title}
                                 />
                         </div>
-                        <div className="mb-4">
+                        <div className="mb-3">
                             {errors.date ? <p className='text-danger'>{errors.date}</p> : ""}
                             <label htmlFor="date" className="form-label">Date</label>
                             <input
                                 type="date"
                                 name="date"
-                                className="form-control form-control-lg"
+                                className="form-control"
                                 onChange={onChangeHandler}
                                 value={formattedDate}
                                 />
                         </div>
                 
-                        <div className="mb-4">
-                            {errors.content ? <p className=''>{errors.content}</p> : ""}
+                        <div className="mb-3">
+                            {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
                             <label htmlFor="content" className="form-label">Note</label>
-                            <textarea name="content" rows="10" className="form-control form-control-lg" value={note.content} onChange={onChangeHandler}></textarea>
+                            <textarea name="content" rows="10" className="form-control" value={note.content} onChange={onChangeHandler}></textarea>
                         </div>
-                        <div class="text-end ">
-                            {/*<input className='' type="submit" value="Edit Note"/>*/}
-                            <div class="btn-group m-4">
-                            <button class="btn btn-primary" type="submit"><span class="button-note-text">Edit Note</span></button>&nbsp;
+                        <div className="btn-group">
+                            <button className="btn btn-primary me-1" type='submit'>Edit Note</button>
                             <button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
-                            </div>
                         </div>
                     </form>
-                    </div>
                 </div>
             </div>
 

@@ -7,7 +7,7 @@ module.exports = {
             .catch(err => res.status(400).json(err))
     },
     getAllNotes: (req, res) => {
-        Note.find({}).sort({updatedAt:-1}) //most recent notes come at beginning of array
+        Note.find({}).sort({date: -1, createdAt: -1}) // sort by note date then created at timestamp
             .then(allNotes => res.json(allNotes))
             .catch(err => res.status(400).json(err))
     },

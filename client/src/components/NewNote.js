@@ -4,7 +4,6 @@ import {Link, useNavigate} from 'react-router-dom'
 
 const NewNote = (props) => {
     // * states
-    // TODO update these to match backend model
     const [note, setNote] = useState({
         title: "",
         date: "",
@@ -29,7 +28,6 @@ const NewNote = (props) => {
         });
     }
 
-    // TODO update lengths or anything else to match backend model
     const formValidator = () => {
         let isValid = true
         const newErrors = {}
@@ -55,7 +53,6 @@ const NewNote = (props) => {
         return isValid;
     }
 
-    // TODO update api link
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (formValidator()) {
@@ -71,58 +68,50 @@ const NewNote = (props) => {
         } 
     }
 
-    // TODO make sure the name="" for each input matches the backend model
     return(
         <div className="container">
-            <div class="row app-page">
-            <div className="col-xs-12 col-md-5 font-google">
-                <div className="">
-                <div>
-                    <h1 className="title-block">Create<br />A New<br />Note</h1>
+
+            <div className="row app-page p-4 align-items-center">
+                <div className="col-md-6 text-center">
+                    <h1 className='display-3 title-block'>Create<br />A New<br />Note</h1>
+                    <Link to="/" className='btn btn-info'>View All Notes</Link>
                 </div>
-                <div class="navi-1"> 
-                    <button class="button-note"><Link to="/" className='button-note-text'>View All Notes</Link></button>
-                </div>
-                </div>
-            </div>
             
-            <div className="col-xs-12 col-md-7">
-                    <div class="list-block">
+                <div className="col-md-6 mt-4 mt-md-0">
                     <form onSubmit={onSubmitHandler}>
-                        <div className="mb-4">
-                            {errors.title ? <p className=''>{errors.title}</p> : ""}
-                            <label htmlFor="title" className="form-labe">Title</label>
+                        <div className="mb-3">
+                            {errors.title ? <p className='text-danger'>{errors.title}</p> : ""}
+                            <label htmlFor="title" className="form-label">Title</label>
                             <input
                                 type="text"
                                 name="title"
-                                className="form-control form-control-lg"
+                                className="form-control"
                                 onChange={onChangeHandler}
                                 />
                         </div>
-                        <div className="mb-4">
-                            {errors.date ? <p className=''>{errors.date}</p> : ""}
+                        <div className="mb-3">
+                            {errors.date ? <p className='text-danger'>{errors.date}</p> : ""}
                             <label htmlFor="date" className="form-label">Date</label>
                             <input
                                 type="date"
                                 name="date"
-                                className="form-control form-control-lg"
+                                className="form-control"
                                 onChange={onChangeHandler}
                                 />
                         </div>
                 
-                        <div className="mb-4">
-                            {errors.content ? <p className=''>{errors.content}</p> : ""}
+                        <div className="mb-3">
+                            {errors.content ? <p className='text-danger'>{errors.content}</p> : ""}
                             <label htmlFor="content" className="form-label">Note</label>
-                            <textarea name="content" rows="10" className="form-control form-control-lg" onChange={onChangeHandler}></textarea>
+                            <textarea name="content" rows="10" className="form-control" onChange={onChangeHandler}></textarea>
                         </div>
-                        <div class="text-end mb-4">
-                            {/*<input className='' type="submit" value="Add Note"/>*/}
-                            <button class="btn btn-primary" type="submit"><span class="button-note-text">Add Note</span></button>
+                        <div>
+                            <button className="btn btn-primary" type="submit">Add Note</button>
                         </div>
                     </form>
-                    </div>
                 </div>
             </div>
+
         </div>
     )
 }

@@ -12,7 +12,6 @@ const ViewPage = (props) => {
     // * param for url to single product page
     const { id } = useParams();
 
-    // TODO update api link
     // * getting the data for the item
     useEffect(() => {
         axios.get(`http://localhost:8000/api/notes/${id}`)
@@ -23,7 +22,6 @@ const ViewPage = (props) => {
             .catch(err => console.log(err))
     }, []);
 
-    // TODO update api link
     // * delete functionality
     const deleteOneHandler = (id) => {
         axios.delete(`http://localhost:8000/api/notes/${id}`)
@@ -36,22 +34,22 @@ const ViewPage = (props) => {
     return(
         <div className="container">
 
-            <div className='row app-page'>
-                <div className="col-xs-12 col-md-5 font-google">
-                    <div>
-                    <h1 class="title-block-2">{note.title}</h1>
-                    </div>
-                    <div class="navi-1"> 
-                    <button class="button-note"><Link to="/" className='button-note-text'>View All Notes</Link></button>
+            <div className='row app-page p-4 align-items-center'>
+                <div className="col-md-6 text-center">
+                    <div className='w-75 mx-auto'>
+                        <h1 className='display-3 title-block'>{note.title}</h1>
+                        <Link to="/" className='btn btn-info'>View All Notes</Link>
                     </div>
                 </div>
-                <div className="col-xs-12 col-md-7">
-                    <div className='list-block'>
+
+                <div className="col-md-6 mt-4 mt-md-0">
+                    <div className='mb-4'>
                         <p><i>{new Date(note.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric", timeZone: "UTC"})}</i></p>
                         <p>{note.content}</p>
                     </div>
-                    <div class="text-end">
-                        <button class="btn btn-primary"><Link to={`/edit/note/${note._id}`} className='button-note-text'>Edit</Link></button>&nbsp;<button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
+                    <div className="btn-group text-center text-md-start d-block">
+                        <Link className="btn btn-primary me-1" to={`/edit/note/${note._id}`}>Edit</Link>
+                        <button className="btn btn-danger" onClick={(e) => deleteOneHandler(note._id)}>Delete</button>
                     </div>
                 </div>
             </div>
