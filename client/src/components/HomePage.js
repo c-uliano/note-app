@@ -58,7 +58,10 @@ const HomePage = (props) => {
                             <input onChange={onClickStrike} checked={note.isCompleted} name={idx} value={idx} className="form-check-input" type="checkbox" />
                         </div>
                         <div className="col-md">
-                            <h3><Link to={`/view/note/${note._id}`} className={style.hoverUnderline}><span className={note.isCompleted ? style.strikeThrough : null}>{note.title}</span></Link></h3>
+                            <h3>
+                                {note.isCompleted ? <span className={`d-inline-block ${style.strikeThrough}`}>{note.title}</span> : <Link to={`/view/note/${note._id}`} className={style.hoverUnderline}>{note.title}</Link>}
+                                {/* <Link to={`/view/note/${note._id}`} className={style.hoverUnderline}><span className={note.isCompleted ? style.strikeThrough : null}>{note.title}</span></Link> */}
+                            </h3>
                         </div>
                         <div className="col-md-auto">
                             <div>

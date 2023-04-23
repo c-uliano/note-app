@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import style from './ViewNote.module.css';
 
 const ViewPage = (props) => {
     // * states
@@ -45,7 +46,7 @@ const ViewPage = (props) => {
                 <div className="col-md-6 mt-4 mt-md-0">
                     <div className='mb-4'>
                         <p><i>{new Date(note.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric", timeZone: "UTC"})}</i></p>
-                        <p>{note.content}</p>
+                        <p className={style.spaceWrap}>{note.content}</p>
                     </div>
                     <div className="btn-group text-center text-md-start d-block">
                         <Link className="btn btn-primary me-1" to={`/edit/note/${note._id}`}>Edit</Link>
@@ -56,8 +57,6 @@ const ViewPage = (props) => {
 
         </div>
     )
-
-
 }
 
 export default ViewPage;
