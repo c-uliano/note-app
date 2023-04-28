@@ -66,7 +66,8 @@ const EditNote = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (formValidator()) {
-            axios.put('http://localhost:8000/api/notes/'+note._id, note)
+            // axios.patch('http://localhost:8000/api/notes/'+note._id, note)
+            axios.patch(`http://localhost:8000/api/notes/${id}`, note)
             .then(res => {
                 console.log(res);
                 const id = res.data._id

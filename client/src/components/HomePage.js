@@ -12,7 +12,7 @@ const HomePage = (props) => {
         axios.get('http://localhost:8000/api/notes')
             .then(res => {
                 setList(res.data)
-                console.log(list) //prints empty array because state is updates late
+                console.log(list) 
                 console.log(res.data)
             })
             .catch(err => console.log(err))
@@ -29,17 +29,19 @@ const HomePage = (props) => {
     }
     
     // * onChange handler
-    const onClickStrike = (e) => {
+    const onChangeStrike = (e) => {
         // console.log(e.target);
         const index = parseInt(e.target.value);
         
         const newList = list.map((item, i) => {
             if (index === i) {
+                axios.patch("http://localhost:8000/api/notes/" + item._id, {...item, isCompleted: !item.isCompleted})
+
                 return {...item, isCompleted: !item.isCompleted}
             }
             return item;
         });
-        setList(newList);
+            setList(newList);
     }
 
     return(
@@ -55,12 +57,11 @@ const HomePage = (props) => {
                 {list && list.map((note, idx) => (
                     <div className="row align-items-center border-bottom mb-2 pb-2 text-center text-md-start" key={idx}>
                         <div className='col-md-auto'>
-                            <input onChange={onClickStrike} checked={note.isCompleted} name={idx} value={idx} className="form-check-input" type="checkbox" />
+                            <input onChange={onChangeStrike} checked={note.isCompleted} name={idx} value={idx} className="form-check-input" type="checkbox" />
                         </div>
                         <div className="col-md">
                             <h3>
                                 {note.isCompleted ? <span className={`d-inline-block ${style.strikeThrough}`}>{note.title}</span> : <Link to={`/view/note/${note._id}`} className={style.hoverUnderline}>{note.title}</Link>}
-                                {/* <Link to={`/view/note/${note._id}`} className={style.hoverUnderline}><span className={note.isCompleted ? style.strikeThrough : null}>{note.title}</span></Link> */}
                             </h3>
                         </div>
                         <div className="col-md-auto">
